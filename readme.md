@@ -7,6 +7,6 @@
     - 区间操作 **RangeModule**  (Map + multiset 模拟) 单点更新 + 区间管理
     - TODO : 求逆元 , 字符串哈希 , 组合数 , 最短路 , 二分图 , Trie , 最小生成树 , 离散化 , 子集枚举 , 欧拉函数 , 线段树 , 欧拉函数 , 筛质数 , 博弈论
 3. CODE :
-    - LCCode : 用于 LeetCode Competition 使用
-    - CFCode : 用于 CodeForce Competition 使用 (用脚本编译 数据放置在 data.txt 中)
-    - ACWCode : 用于 ACwin Competition 使用 (用脚本编译 数据放置在 data.txt 中)
+    - LCCode : 用于 **LeetCode Competition** 使用
+    - CFCode : 用于 **CodeForce Competition** 使用 (用脚本编译 数据放置在 **data.txt** 中)
+    - ACWCode : 用于 **ACwin Competition** 使用 (用脚本编译 数据放置在 **data.txt** 中)

@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 using PII = pair<int,int>;
 class RangeModule_Point
 {
@@ -21,20 +22,23 @@ public:
         if(r < l) return ;
         mst.insert(r - l + 1) , mp[r] = {l,q};
     }
-    int getMaxRLen() {// 返回区间的最大值
+    int getMaxRLen() {// 返回区间的最大长度
         return *mst.rbegin();
     }
-    int getRange(int pos) {// 得到 pos 的所属区间的右端点
+    int findR(int pos) {// 得到 pos 的所属区间的右端点
         return mp.lower_bound(pos)->first;
+    }
+    int getQ(int pos) {// 获得位置 pos 的性质
+        return mp.lower_bound(pos)->second.second;
     }
     void update(int pos,int nq) {// 将位置 pos 的属性改为 nq
         // 需要判断 pos 在所属区间 [l:r]
-        int r = getRange(pos) , l = mp[r].first , q = mp[r].second;
+        int r = findR(pos) , l = mp[r].first , q = mp[r].second;
         if(q == nq) return ;// 该点的属性不变
         // 然后判断 pos 在 [l:r] 的方位
 
         if(r == l && l > l_ && l < r_ && mp[l - 1].second == nq) {// 取左右两个区间判断是否能合并
-            auto rr = getRange(r + 1);// 右边的区间的右端点
+            auto rr = findR(r + 1);// 右边的区间的右端点
             if(mp[rr].second == nq) {
                 // [mp[l-1].first,l-1] + [l,r] + [r+1,rr] -> [mp[l-1].first,rr]
                 int ll = mp[l-1].first;
@@ -75,7 +79,7 @@ public:
                 erase(r);
                 add(r,r,nq) , add(l,r - 1,q);
             } else {
-                int rr = getRange(r + 1);
+                int rr = findR(r + 1);
                 if(mp[rr].second == nq) {
                     // [l,r] + [mp[rr].first,rr] -> [l,r - 1] + [r,rr]
                     erase(r) , erase(rr);
