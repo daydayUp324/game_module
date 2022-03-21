@@ -1,9 +1,13 @@
 #include <bits/stdc++.h>
 using PII = pair<int,int>;
-class RangeModule
+class RangeModule_Point
 {
     /***
-     * 适用范围 : 每一段小区间左右端点合并在一起是一段完整的区间
+     * 适用范围 : 
+     * 1. 每一段小区间左右端点合并在一起是一段完整的区间
+     * 2. 单点更新
+     * 
+     * 题目链接 : [6030. 由单个字符重复的最长子字符串](https://leetcode-cn.com/problems/longest-substring-of-one-repeating-character/submissions/)
     */
 private:
     multiset<int> mst;// 每一段区间长度
@@ -42,8 +46,8 @@ public:
         if(pos > l && pos < r) {
             // [l,r] -> [l,pos - 1] [pos,pos] [pos + 1,r] 前后两个区间的属性不变
             erase(r) , add(l,pos - 1,q) , add(pos,pos,nq) , add(pos + 1,r,q);
+            return ;
         }
-        bool merge = false;
         if(pos == l) {
             // 判断是否和左边的区间属性相同
             if(pos == l_) {// 已经是最左边的区间了
@@ -56,7 +60,7 @@ public:
                     int ll = mp[l - 1].first;
                     erase(r) , erase(l - 1);
                     add(ll,l,nq) , add(l + 1,r,q);
-                    merge = true;
+                    return ;
                 } else {
                     // [l,r] -> [l,l] + [l + 1,r] 
                     erase(r);
@@ -66,7 +70,6 @@ public:
         }
         if(pos == r) {
             // 判断是否和右边的区间属性相同
-            if(merge) return ;// 如果和左边的进行合并过了
             if(r == r_) {// 已经是最右边的区间
                 // [l,r] -> [l,r - 1] + [r,r] 
                 erase(r);
@@ -85,7 +88,7 @@ public:
             }
         }
     }
-    RangeModule(int _l,int _r) {
+    RangeModule_Point(int _l,int _r) {
         l_ = _l , r_ = _r;
     };
 };
