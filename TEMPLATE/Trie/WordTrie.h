@@ -15,6 +15,7 @@ class WordTrie
      * 1. 插入某一个单词
      * 2. 删除某一个单词
      * 3. 查询某一个单词(个数) 或者 前缀
+     * 4. 查询某一个单词是能用当前数据结构中的单词组成
      */
 private:
     int cnt;// 某一个节点 被多少个 word 所共用
@@ -61,6 +62,9 @@ public:
         }
         if(root->end) return root->cnt;
         return 0;// 如果不是一个单词的结束
+    }
+    bool judgeCompose(strng& w) {// 判断 单词 w 是否能被当前的单词所组成
+        // 
     }
     bool startsWith(string& prefix) {// 查询是否有一个单词有前缀 prefix
         WordTrie* root = this;
