@@ -7,7 +7,7 @@ void Print_Point(RangeModule_Point* h,int l,int r) {// 打印 [l,r] 上每一个
     }
     cout<<"\n";
 }
-void Test_RangeModule_Point() {// 测试 RangeModule_Point 模块
+void Test_RangeModule_Point() {// 测试 RangeModule_Point 模块 无需输入
     RangeModule_Point* h = new RangeModule_Point(1,8);
     cout<<"Initial seg : [1,8,2] : \n\n";
     h->add(1,8,2);
@@ -36,9 +36,11 @@ void Test_RangeModule_Point() {// 测试 RangeModule_Point 模块
 void Help(RangeModule_Seg* h,int op,int l,int r) {// 帮助测试 RangeModule_Seq 模块
     if(op == 1) {
         cout<<"Add [ "<<l<<" , "<<r<<" ] : \n"; h->add(l,r); h->Print_Seq();
+        h->Print_Len();
         cout<<" ----------- \n\n";
     } else if(op == 2) {
         cout<<"Erase [ "<<l<<" , "<<r<<" ] : \n"; h->erase(l,r); h->Print_Seq();
+        h->Print_Len();
         cout<<" ----------- \n\n";
     } else {
         cout<<"query [ "<<l<<" , "<<r<<" ] : \n"; 
@@ -48,9 +50,13 @@ void Help(RangeModule_Seg* h,int op,int l,int r) {// 帮助测试 RangeModule_Se
     }
 }
 void Test_RangeModule_Seq() {// 测试 RangeModule_Seq 模块
-    RangeModule_Seg* h = new RangeModule_Seg();
-    Help(h,1,10,179),Help(h,1,150,199),Help(h,1,250,499),Help(h,3,50,99);
-    Help(h,3,180,299),Help(h,3,600,999),Help(h,2,50,149),Help(h,3,50,99);
+    RangeModule_Seg* h = new RangeModule_Seg(true);
+    int op,l,r,n;
+    cin >> n;
+    for(int i = 0;i < n;i ++) {
+        cin >> op >> l >> r;
+        Help(h,op,l,r);// 输入数据在 data.txt 中
+    }
 }
 int main() {
     // Test_RangeModule_Point();

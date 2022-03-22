@@ -22,11 +22,6 @@ public:
         }
         cout<<"\n";
     }
-    void Print_Len() {// 测试用 : 输出当前全部的区间长度
-        cout<<"mst  : \n";
-        for(auto& i : mst) cout<<i<<" ";
-        cout<<"\n";
-    }
     void remove_seq(int len) {// 移除区间长度
         mst.erase(mst.find(len));
     }
@@ -176,7 +171,6 @@ public:
         seqs[r] = l;
         if(mst_flag) add_seq(r - l + 1);
     }
-
     bool query(int l,int r) {// 查询区间 [l:r] 是否存在 
         if(l > r) return false;
         if(seqs.empty() || r < seqs.begin()->second || l > seqs.rbegin()->first) {
@@ -194,3 +188,35 @@ public:
         mst_flag = flag;
     };
 };
+class RangeModule {
+public:
+    RangeModule_Seg* h;
+    bool hf = false;
+    RangeModule() {
+        h = new RangeModule_Seg(false);
+    }
+    
+    void addRange(int left, int right) {
+        if(hf) cout<<"1 "<<left<<" "<<right-1<<"\n";
+        h->add(left,right - 1);
+    }
+    
+    bool queryRange(int left, int right) {
+        if(hf) cout<<"3 "<<left<<" "<<right-1<<"\n";
+        return h->query(left,right-1);
+    }
+    
+    void removeRange(int left, int right) {
+        // if(left == 71 && right == 86) hf = true;
+        if(hf) cout<<"2 "<<left<<" "<<right-1<<"\n";
+        h->erase(left,right - 1);
+    }
+};
+
+/**
+ * Your RangeModule object will be instantiated and called as such:
+ * RangeModule* obj = new RangeModule();
+ * obj->addRange(left,right);
+ * bool param_2 = obj->queryRange(left,right);
+ * obj->removeRange(left,right);
+ */
