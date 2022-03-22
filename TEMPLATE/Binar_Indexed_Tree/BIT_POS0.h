@@ -2,12 +2,14 @@
 template<typename T>
 class BIT
 {
-/*
-1. arr[] 从下标 0 开始 则 : tree[index + 1] 负责 arr[index]
-2. 单点更新 每次 + 1
-3. 区间 [1:p] 查询 -> query(p)
-4. 区间 [l:r] 查询 -> query(r) - query(l - 1) 对于 l == 0 特判
-*/
+    /**
+     * author : daydayUppp
+     * 适用范围 :
+     * 1. arr[] 从下标 0 开始 则 : tree[index + 1] 负责 arr[index]
+     * 2. 单点更新 每次 + 1
+     * 3. 区间 [1:p] 查询 -> query(p)
+     * 4. 区间 [l:r] 查询 -> query(r) - query(l - 1) 对于 l == 0 特判
+     */
 private:
     int n;
     T tree[SZ];
