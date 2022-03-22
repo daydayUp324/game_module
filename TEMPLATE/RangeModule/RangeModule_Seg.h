@@ -3,7 +3,7 @@ using namespace std;
 class RangeModule_Seg
 {
     /***
-     * author : daydayUppp
+     * @author : daydayUppp
      * 适用范围 : 
      * 1. 用于区间 [l:r] 的 add 和 remove 
      * 2. 区间管理 区间没有属性 每一段区间都没有重叠部分

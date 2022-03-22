@@ -3,7 +3,7 @@ template<typename T>
 class BIT
 {
     /**
-     * author : daydayUppp
+     * @author : daydayUppp
      * 适用范围 : 
      * 1. arr[] 从下标 1 开始 则 : tree[index] 负责 arr[index]
      * 2. 单点更新 每次 + 1

@@ -1,6 +1,6 @@
 class DSU {
     /**
-     * author : daydayUppp
+     * @author : daydayUppp
      * fp(int x) 查找 x 的连通块的代表
      */
 public:

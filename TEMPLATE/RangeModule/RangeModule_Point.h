@@ -4,7 +4,7 @@ using PII = pair<int,int>;
 class RangeModule_Point
 {
     /***
-     * author : daydayUppp
+     * @author : daydayUppp
      * 适用范围 : 
      * 1. 每一段小区间左右端点合并在一起是一段完整的区间
      * 2. 单点更新
