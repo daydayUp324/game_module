@@ -10,7 +10,9 @@ class RangeModule_Seg
      * 3. 可以扩展为 O(1) 得到目前区间的最大长度 mst.rbegin();
      * 4. mst_flag 用于维护当前区间的长度
      * 
-     * 题目链接 : [715. Range 模块](https://leetcode-cn.com/problems/range-module/)
+     * 题目链接 : 
+     * [715. Range 模块](https://leetcode-cn.com/problems/range-module/)
+     * [352. 将数据流变为多个不相交区间](https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/)
     */
 private:
     multiset<int> mst;// 每一段区间长度
