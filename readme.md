@@ -8,15 +8,15 @@
 
 主要放置 对应的 **"算法模板"** :
 
-- 树状数组 **BIT**  (单点更新) 主要为 arr[] 下标从 0,1 的开始的两个版本
+- 树状数组 **BIT**  (单点更新) 主要为 $arr[]$ 下标从 $0,1$ 的开始的两个版本
 - 并查集 **DSU**
-- 区间操作 **RangeModule**  (**Map** + **multiset** 模拟) 单点更新 + 区间管理
-- (TODO) 字符串哈希 **StringHash** (双 **MOD 哈希**) , 给出定义 **PII** 的 **hashPII()**
-- (TODO) 线段树 **SegmentTree** 
+- 区间操作 **RangeModule**  (**Map** + **multiset** 模拟) 单点更新 + 区间管理 两个版本
+- 字符串哈希 **StringHash** (双 **MOD 哈希**) , 给出了定义 **PII** 的 **hashPII()** 用于保存状态
 - 离散化 **Discretize** (主要给出 **概念** 和 **相关的操作**)
+- (TODO) 线段树 **SegmentTree**
 - (TODO) 字典树 **Trie**
 - (TODO) 数学相关 **MathRelated** (质数筛、组合数、求逆元)
-- **TODO** : 最短路 , 二分图 , 最小生成树 , 欧拉函数 , 欧拉函数 , 博弈论
+- **TODO** : 最短路 , 二分图 , 马拉车Manacher , 最小生成树 , 欧拉函数 , 欧拉函数 , 博弈论
 
 ## CODE
 

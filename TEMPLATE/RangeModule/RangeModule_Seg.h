@@ -121,7 +121,7 @@ public:
         auto t = seqs.lower_bound(l);// [ll,rr]
         // 1. 该区间被包含
         if(t->second <= l && t->first >= r) return ;// 无需额外操作
-        // 2. 该区间与其他区间无交集
+        // 2. 该区间与其他区间无交集 [_l,_r] [l,r] [l_,r_]
         if(t->second > r + 1 && !seqs.count(l - 1)) {
             seqs[r] = l;
             if(mst_flag) {
