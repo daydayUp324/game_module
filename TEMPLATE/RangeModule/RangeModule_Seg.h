@@ -120,7 +120,7 @@ public:
         // 1. 该区间被包含
         if(t->second <= l && t->first >= r) return ;// 无需额外操作
         // 2. 该区间与其他区间无交集
-        if(t->second > r) {
+        if(t->second > r + 1 && !seqs.count(l - 1)) {
             seqs[r] = l;
             if(mst_flag) {
                 add_seq(r - l + 1);
