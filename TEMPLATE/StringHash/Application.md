@@ -4,7 +4,7 @@
 
 ### 题目描述
 
-![image.png](https://pic.leetcode-cn.com/1648038592-lxVvZj-image.png)
+![image.png](https://s2.loli.net/2022/03/24/OXAG3wSDxT2p6Fj.png)
 
 ### 代码参考
 
@@ -130,7 +130,7 @@ public:
 
 ### 题目描述
 
-![image.png](https://pic.leetcode-cn.com/1648038682-zAxGvP-image.png)
+![image.png](https://s2.loli.net/2022/03/24/AipKTvYEJgQHRxI.png)
 
 ### 代码参考
 
@@ -246,7 +246,7 @@ public:
 
 ### 题目描述
 
-![image.png](https://pic.leetcode-cn.com/1648039273-wFGcTq-image.png)
+![image.png](https://s2.loli.net/2022/03/24/JuVzFjDNSyfm8TZ.png)
 
 ### 解题思路
 
