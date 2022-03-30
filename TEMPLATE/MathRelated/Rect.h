@@ -1,10 +1,5 @@
-# 数学相关知识整理
-
-## 矩阵相关
-
-> 给出一个矩阵 `rect` 的 `左下角 (lx,ly)` 和 `右下角 (rx,ry)`
-
-```cpp
+#include<bits/stdc++.h>
+using namespace std;
 class Rect
 {
     /**
@@ -37,6 +32,3 @@ public:
         lx = lx_ , ly_ = ly , rx = rx_ , ry = ry_;
     }
 };
-```
-
-## TODO
