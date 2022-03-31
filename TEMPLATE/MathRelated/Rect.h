@@ -5,7 +5,7 @@ class Rect
     /**
      * @author : daydayUppp
      * @brief : 主要总结矩阵的相关性质 :
-     *          1. 计算矩阵的相关信息
+     *          1. 计算矩阵的相关信息 (面积长宽)
      *          2. 计算两个矩阵中间的相交部分面积
      *              - 可以用在 x 和 y 轴方向上的重叠大小来计算
      *              - 以 x 方向为例 : 
@@ -19,6 +19,12 @@ public:
     }
     int Yoverlap(Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
         return max(0 , min(this->ry,B.ry) - max(this->ly,B.ly) );
+    }
+    int length() {
+        return rx - lx;
+    }
+    int height() {
+        return ry - ly;
     }
     int area() {// 计算 RectA 面积
         return (rx - lx) * (ry - ly);
