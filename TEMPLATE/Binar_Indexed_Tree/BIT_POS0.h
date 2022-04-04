@@ -1,4 +1,3 @@
-#define SZ 400007
 template<typename T>
 class BIT
 {
@@ -12,10 +11,11 @@ class BIT
      */
 private:
     int n;
-    T tree[SZ];
+    T* tree;
 public:
     BIT(int sz) {
         this->n = sz;
+        tree = new T[sz + 1];
         for(int i = 1;i < sz;i ++) tree[i] = 0;
     };
     int lowbit(int x) { return x & (-x); }
@@ -36,5 +36,8 @@ public:
             index -= lowbit(index);
         }
         return res;
+    }
+    ~BIT() {
+        delete []tree;
     }
 };

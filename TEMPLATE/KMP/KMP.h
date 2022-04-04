@@ -2,6 +2,9 @@
 using namespace std;
 class KMP
 {
+    /**
+     * @author : daydayUppp
+     */
 public:
     string p;
     int* next;
