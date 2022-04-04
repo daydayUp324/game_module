@@ -4,11 +4,11 @@
 
 ### [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome/)
 
-### 题目描述
+#### 题目描述_1
 
 ![image.png](https://s2.loli.net/2022/03/24/OXAG3wSDxT2p6Fj.png)
 
-### 代码参考
+#### 代码参考_1
 
 ```cpp
 #include <bits/stdc++.h>
@@ -130,11 +130,11 @@ public:
 
 ### [1316. 不同的循环子字符串](https://leetcode-cn.com/problems/distinct-echo-substrings/)
 
-### 题目描述
+#### 题目描述_2
 
 ![image.png](https://s2.loli.net/2022/03/24/AipKTvYEJgQHRxI.png)
 
-### 代码参考
+#### 代码参考_2
 
 ```cpp
 #include <bits/stdc++.h>
@@ -246,14 +246,129 @@ public:
 
 ### [1960. 两个回文子字符串长度的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/)
 
-### 题目描述
+#### 题目描述_3
 
 ![image.png](https://s2.loli.net/2022/03/24/JuVzFjDNSyfm8TZ.png)
 
-### 解题思路
+#### 解题思路_3
 
 1. **二分** 每一个位置 $p$ 作为中心的最大半径 $R[p]$
    - 可用 **字符串哈希** 解决 同样需要 $rs$ 的 $StringHash$)
    - 或者用 **Manacher** 算法
 2. 然后用 $M[i]$ 表示 从 $[i:]$ 的 **最长奇数回文串长度**
 3. 然后 **从左往右** 遍历即可
+
+### [6036. 构造字符串的总得分和](https://leetcode-cn.com/problems/sum-of-scores-of-built-strings/)
+
+#### 题目描述_4
+
+![image.png](https://s2.loli.net/2022/04/04/2au4njKAgsoBtFH.png)
+
+#### 解题思路_4
+
+知识点 : **二分 + 字符串哈希** / **扩展 KMP (具体见 KMP 对应 Application)**
+
+因为对于每一个长度的后缀 $s[n - len:]$ , 与 $s$ 的相同 **前缀长度** 具有单调性质 , 所以 二分最大的与 $s$ 的相同前缀长度即可
+
+#### 代码参考_4
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+using PII = pair<int,int>;
+using LL = long long;
+/**
+ * @author : daydayUppp
+ * 
+ * 1. 用 Random_ 类 来产生 Base 作为 StringHash 的参数
+ * 2. StringHash 中 string 也可以用 vector 等作为参数传入
+ */
+class Random_ 
+{
+public:
+    int getARandom(int l = 1e6,int r = 1e7) {
+        mt19937 gen{random_device{}()};
+        auto dis = uniform_int_distribution<int>(l,r); 
+        return dis(gen);
+    }
+    Random_() {};
+};
+class StringHash
+{
+private:
+    static constexpr int MOD1 = 1000000007;
+    static constexpr int MOD2 = 1000000009;
+    int Base1,Base2;// 两个基底
+    struct pairhash {
+        size_t operator() (const pair<int, int>& p) const {
+            auto fn = hash<int>();
+            return (fn(p.first) << 16) ^ fn(p.second);
+        }
+    };
+    int n;// 字符串长度
+    vector<LL> pre1,pre2;
+    vector<LL> pow1,pow2;
+    unordered_set<PII,pairhash> piist;
+public:
+    void initial(string& s) {
+        pow1.resize(n) , pow2.resize(n) , pre1.resize(n) , pre2.resize(n);
+        pow1[0] = pow2[0] = 1;
+        pre1[0] = s[0] , pre2[0] = s[0];
+        for(int i = 1;i < n;i ++) {
+            pow1[i] = (pow1[i - 1] * Base1) % MOD1;
+            pow2[i] = (pow2[i - 1] * Base2) % MOD2;
+            pre1[i] = (pre1[i - 1] * Base1 + s[i]) % MOD1;
+            pre2[i] = (pre2[i - 1] * Base2 + s[i]) % MOD2;
+        } 
+    }
+    void add(PII& t) {// 加入某一个状态
+        piist.insert(t);
+    }
+    int getNumber() {// 返回不同的状态数
+        return piist.size();
+    }
+    PII getHash(int l,int r) {// return hash( s[l,r] )
+        int hash1 , hash2;
+        if(l == 0) hash1 = pre1[r] , hash2 = pre2[r];
+        else {
+            hash1 = (pre1[r] - ((pre1[l - 1] * pow1[r + 1 - l]) % MOD1) + MOD1) % MOD1;
+            hash2 = (pre2[r] - ((pre2[l - 1] * pow2[r + 1 - l]) % MOD2) + MOD2) % MOD2;
+        } 
+        return {hash1,hash2};
+    }
+    StringHash(string& s,int Base1_,int Base2_) {
+        this->n = s.size();
+        this->Base1 = Base1_ , this->Base2 = Base2_;
+        initial(s);
+    };
+    StringHash(string& s) {
+        this->n = s.size();
+        Random_ h; 
+        this->Base1 = h.getARandom(); 
+        this->Base2 = h.getARandom();
+        while(this->Base2 == Base1) this->Base2 = h.getARandom();
+        initial(s);
+    }
+};
+class Solution {
+public:
+    long long sumScores(string s) {
+        StringHash* h = new StringHash(s);
+        int n = s.size();
+        LL res = 0;
+        for(int len = 1;len <= n;len ++) {
+            int l = 1;
+            int r = len;
+            // [n - len,n - 1]
+            while(l <= r) {
+                auto mid = (l + r) / 2;
+                if(h->getHash(n - len,n - len + mid - 1) == \
+                  h->getHash(0,mid - 1)) l = mid + 1;
+                else r = mid - 1;
+            }
+            res += l - 1;
+        }
+        return res;
+    }
+};
+```
