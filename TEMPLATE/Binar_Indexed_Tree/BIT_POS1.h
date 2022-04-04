@@ -9,19 +9,18 @@ class BIT
      * 3. 区间 [1:p] 查询 -> query(p)
      * 4. 对于区间 [l:r] 查询 -> query(r) - query(l - 1) 对于 l == 1 特判
      */
-private:
+public:
     int n;
     T* tree;
-public:
     BIT(int sz) {
-        this->n = sz;
-        tree = new T[sz + 1];
-        for(int i = 1;i < sz;i ++) tree[i] = 0;
+        this->n = sz + 1;
+        tree = new T[n];
+        for(int i = 1;i < n;i ++) tree[i] = 0;
     };
     int lowbit(int x) { return x & (-x); }
     void update(int index,T d) {
         // 更新 arr[index] -> 负责的节点为 tree[index]
-        while(index <= n) {
+        while(index < n) {
             tree[index] += d;
             index += lowbit(index);
         }
