@@ -58,7 +58,7 @@ private:
     int n;// 字符串长度
     vector<LL> pre1,pre2;
     vector<LL> pow1,pow2;
-    unordered_set<PII,pairhast> piist;
+    unordered_set<PII,pairhash> piist;
 public:
     void initial(string& s) {
         pow1.resize(n) , pow2.resize(n) , pre1.resize(n) , pre2.resize(n);
@@ -74,7 +74,7 @@ public:
     void add(PII& t) {// 加入某一个状态
         piist.insert(t);
     }
-    int getNumber {// 返回不同的状态数
+    int getNumber() {// 返回不同的状态数
         return piist.size();
     }
     PII getHash(int l,int r) {// return hash( s[l,r] )
@@ -91,4 +91,12 @@ public:
         this->Base1 = Base1_ , this->Base2 = Base2_;
         initial(s);
     };
+    StringHash(string& s) {
+        this->n = s.size();
+        Random_ h; 
+        this->Base1 = h.getARandom(); 
+        this->Base2 = h.getARandom();
+        while(this->Base2 == Base1) this->Base2 = h.getARandom();
+        initial(s);
+    }
 };

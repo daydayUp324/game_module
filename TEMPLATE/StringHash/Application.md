@@ -1,6 +1,8 @@
-# 相关题目
+#
 
-## [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome/)
+## 相关题目
+
+### [214. 最短回文串](https://leetcode-cn.com/problems/shortest-palindrome/)
 
 ### 题目描述
 
@@ -126,7 +128,7 @@ public:
 };
 ```
 
-## [1316. 不同的循环子字符串](https://leetcode-cn.com/problems/distinct-echo-substrings/)
+### [1316. 不同的循环子字符串](https://leetcode-cn.com/problems/distinct-echo-substrings/)
 
 ### 题目描述
 
@@ -242,7 +244,7 @@ public:
 };
 ```
 
-## [1960. 两个回文子字符串长度的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/)
+### [1960. 两个回文子字符串长度的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/)
 
 ### 题目描述
 
