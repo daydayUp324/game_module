@@ -1,7 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
 class DSU {
     /**
      * @author : daydayUppp
-     * fp(int x) 查找 x 的连通块的代表
+     * 1. fp(int x) 查找 x 的连通块的代表
+     * 2. isconnect(int x,int y) 判断 x,y 是否连通
+     * 3. unite(int x,int y) 连接 x,y
      */
 public:
     int* fa;
@@ -9,18 +13,25 @@ public:
     DSU(int n_) {
         n = n_ , count = n_;
         fa = new int[n_ + 1];
+        memset(fa,-1,4 * n + 4);
     }
     int fp(int x) {
         return fa[x] < 0 ? x : fa[x] = fp(fa[x]);
     }
+    bool isconnect(int x,int y) {
+        return fp(x) == fp(y);
+    }
     bool unite(int x,int y) {
         // 连接 x 和 y
         x = fp(x) , y = fp(y);
-        if(x == y) return false;// 已经是一个连通分量
+        if(x == y) return false;
         count --;
         // 按秩合并 
         if(fa[x] > fa[y]) y ^= x , x ^= y , y ^= x;
         fa[x] += fa[y] , fa[y] = x;
         return true;
+    }
+    ~DSU() {
+        delete []fa;
     }
 };
