@@ -63,8 +63,24 @@ public:
         if(root->end) return root->cnt;
         return 0;// 如果不是一个单词的结束
     }
-    bool judgeCompose(strng& w) {// 判断 单词 w 是否能被当前的单词所组成
-        // 
+    // Attention : 此时是当前的单词能重复使用 且 没有重复的单词
+    // 如果有重复的单词,且不能重复使用的话,需要 bool end -> int end 并且在回溯的时候 主要 end 的更新
+    bool helpJudge(WordTrie* root,vector<bool>& vi,string& w,int curp) {
+        if(curp == w.size()) return root->end;
+        int o = w[curp] - BASE;
+        if(!vi[curp] && root->end) {
+            if(this->next[o] && helpJudge(this->next[o],vi,w,curp + 1)) {
+                return true;
+            } 
+            vi[curp] = true;
+        }
+        if(root->next[o] && helpJudge(root->next[o],vi,w,curp + 1)) return true;
+        return false;
+    }
+    bool judgeCompose(string& w) {// 判断 单词 w 是否能被当前的单词所组成
+        WordTrie* root = this;
+        vector<bool> vi((int) w.size(),false);
+        return helpJudge(root,vi,w,0);
     }
     bool startsWith(string& prefix) {// 查询是否有一个单词有前缀 prefix
         WordTrie* root = this;

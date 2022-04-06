@@ -19,7 +19,7 @@
   - `Z Algorithm` ( `扩展 KMP 算法` )
 - **自定义** `Node` 的 `unordered_map` 和 `map` 的写法
 - **线段树** `SegmentTree` (**区间更新 + 单点更新**)
-- (TODO) **字典树** `Trie`
+- **字典树** `Trie`
 - (TODO) **数学相关** `MathRelated` —— `质数筛` , `组合数` , `求逆元` , `矩阵的相关性质`
 - **TODO** : 最短路 , 二分图 , 最小生成树 , 欧拉函数 , 欧拉函数 , 博弈论 , 模拟退火 , 倍增法LCA
 
