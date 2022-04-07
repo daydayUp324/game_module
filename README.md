@@ -1,9 +1,5 @@
 # 说明
 
-## HEAD
-
-主要放置竞赛的一些 **"头"** —— 主要针对 **ACwin CodeForce LeetCode**
-
 ## TEMPLATE
 
 主要放置 对应的 **"算法模板"** :
@@ -20,8 +16,30 @@
 - **自定义** `Node` 的 `unordered_map` 和 `map` 的写法
 - **线段树** `SegmentTree` (**区间更新 + 单点更新**)
 - **字典树** `Trie`
-- (TODO) **数学相关** `MathRelated` —— `质数筛` , `组合数` , `求逆元` , `矩阵的相关性质`
-- **TODO** : 最短路 , 二分图 , 最小生成树 , 欧拉函数 , 欧拉函数 , 博弈论 , 模拟退火 , 倍增法LCA
+- **表达式求值** (TODO)
+- **倍增法LCA** (TODO)
+- **数学相关** `MathRelated` ——
+  - `质数筛`
+  - `矩阵的相关性质`
+  - `组合数` (TODO)
+  - `求逆元` (TODO)
+  - `欧拉函数` (TODO)
+  - `博弈论` (TODO)
+  - `斯特林数` (TODO)
+- **图论相关** `GraghTheory` ——
+  - `最短路` (TODO)
+  - `二分图` (TODO)
+  - `最小生成树` (TODO)
+  - `Tarjan` (TODO)
+  - `欧拉回路` (TODO)
+  - `凸包问题` (TODO)
+- **模拟退火** `Simulate_Anneal` (TODO)
+- **经典排序算法** (TODO) 重点 : **归并排序**
+- **经典动态规划算法总结** (TODO)
+
+## HEAD
+
+主要放置竞赛的一些 **"头"** —— 主要针对 **ACwin CodeForce LeetCode**
 
 ## CODE
 

@@ -2,33 +2,10 @@
 using namespace std;
 /**
  * @author : daydayuppp
- * 埃氏筛 : 
  * 
- * <= n 的质数的个数大致在 n / logn 左右
- * 
- * 数学原理：
- * 1. 任何正整数（除1外），所有正整数均能分解为素数的乘积。
- * 2. 比 n 小的某合数 a , a 的最小质因数一定不会大于 sqrt(n) :
- *      证明 : 设 : x 为 a 的最小质因数 , 得 :
- *             a / x >= x
- *             ---> n > a >= x * x , 即 x < sqrt(n)
- * 
- * 要得到自然数n以内的全部素数，必须把不大于sqrt(n)的所有素数的倍数剔除，剩下的就是素数。
- * 而正常的判断每一个数是否是素数需要 O(sqrt(n)) 的复杂度 , 整的复杂度就会到 O(n * sqrt(n))
- * 
- * 埃氏筛复杂度 :
- * 时间复杂度 : O(n * logn * logn)
- * 空间复杂度 : O(n) 
- * 
- * 
- * 主要用途 :
- * 1. 可以用于得到 [2,n] 内的质数表 , n 可以达到 1e6 级别
- * 2. 区间素数筛 : 计算 [a,b] 内的素数个数 : a < b < 1e12 , b - a <= 1e6
- *      因为不大于 b 的合数的最小质因数 <= sqrt(n)
- *      所以我们预处理 [2,sqrt(b)] 的一个质数表
- *      然后用 得到的 质数表 去处理 [a,b] 区间即可
  */
 int primes[100005];
+int Min_prim_fac[100005];
 int primesSeq[100005];// 某一段区间上的质数
 bool f[100005];
 bool g[100005];
@@ -54,7 +31,21 @@ void primesInSeq(long long a,long long b) {// 计算区间 [a,b] 上的质数个
     if(a == 1) g[0] = false;
     for(int i = 0;i < R;i ++) if(g[i]) primesSeq[cnt2 ++] = a + i;// 该质数为 a + i
 }
-void EhrlichSieve(int n) {// 得到 < n 的全部质数
+void EulerSieve_n(int n) { // O(n)
+    memset(Min_prim_fac,0,4 * n + 4);
+    cnt1 = 0;
+    for(int i = 2;i <= n;i ++) {
+        if(!Min_prim_fac[i]) {
+            primes[cnt1 ++] = i;// 第 cnt 个质数 
+            Min_prim_fac[i] = i;// 质数 i 的最小质数为 i
+        }
+        for(int j = 0;j < cnt1 && i * primes[j] <= n;j ++) {
+            Min_prim_fac[i * primes[j]] = primes[j];
+            if(i % primes[j] == 0) break;
+        }
+    }
+}
+void EhrlichSieve_lognlogn(int n) { // O(nlognlogn)
     memset(f,true,n); cnt1 = 0;
     for(int i = 2;i < n;i ++) {
         if(f[i]) {
