@@ -17,7 +17,10 @@
 - **线段树** `SegmentTree` (**区间更新 + 单点更新**)
 - **字典树** `Trie`
 - **表达式求值** (TODO)
-- **倍增法LCA** (TODO)
+- **倍增法** `Binary_Lifting` (TODO)
+  - `Least-Common-Ancestors (LCA)`
+  - `Kth-ancestor-of-a-tree-node`
+  - `ST 表 (Sparse Table)`
 - **数学相关** `MathRelated` ——
   - `质数筛`
   - `矩阵的相关性质`
