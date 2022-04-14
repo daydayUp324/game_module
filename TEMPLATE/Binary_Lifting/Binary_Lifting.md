@@ -61,3 +61,50 @@
 具体见 `./LCA.h` 和 `main.cpp` 程序代码
 
 ### ST 表
+
+`ST 表(Sparse Table)` 主要是一种数据结构 , 主要用来解决类似 `RMQ (Maximum/Minimum Query)` 这种 **可重复贡献问题**。
+
+> 可重复问题 : 对于运算 $opt$ 满足 `x opt x = x` 且满足 **结合律** , 则对应的区间查询就是一个 可重复贡献问题 , 比如 `最大值` , `最小值`,`最大公因数`,`最大公倍数`,`按位或/与`。可重复贡献的意义在于 , 可以对两个交集不为空的区间进行区间合并。
+
+主要应用 **倍增** 的思想 (预处理和 `树上倍增` 相类似) , 来实现 $O(nlogn)$ 预处理 , $O(1)$ 查询。
+
+- `RMQ (Maximum/Minimum Query)` : 以最大值为例 , 假如有一个数组 `A[]` , 给定一个区间 `[l,r]` 求 `max{A_i} , i ∈ [l,r]`
+
+`ST 表` 使用的是一个二维数组 , 对于范围内的所有 `f[a][b]` 表示一个对于 `[a,a + 2^b)` 的查询。预处理方法如下 : (以下以查询最大值为例进行说明)
+
+```cpp
+const int N = 2e5 + 7;
+int dp[N][25];// N 为最大的区间范围 , logN < 25
+// 假设原数组为 A[]
+for(int i = 0;i < n;i ++) dp[i][0] = A[i];
+for(int i = 1;i < 25;i ++) {
+    for(j = 0;j + (1 << i) <= nj ++) {
+        dp[j][i] = max(dp[j][i - 1],dp[j + (1 << (i - 1))][i-1]);
+    }
+}
+```
+
+那么对于某一个区间 `[l,r]` 的查询就可以通过这样的方式来查询 : 找到一个 `整数 s` 将 `[l,r]` 分为两个区间 `[l,l + 2^s - 1]` 和 `[r - 2^s + 1,r]` , 并且这两个区间的并集为 : `[l,r]`。那么我们肯定是尽量的希望 第一个区间的右端点尽量的靠近 `r` (当然 第二个区间的左端点尽量靠近 `l` 也是一样的)，那么使 : $l + 2^s - 1 = r$ 此时得到 $s = \lfloor log(r + 1 - l) \rfloor$。
+
+```cpp
+// 对于区间 [l,r] 的查询
+int s = Log2[r + 1 - l];
+int res = max(dp[l][s],dp[r - (1 << s) + 1][s]);
+```
+
+而每次计算 `Log2p[]` 开销太大 , 我们可以对 `Log2[]` 也预处理
+
+```cpp
+Log2[1] = 0;
+for(int i = 2;i < n;i ++) {
+    Log2[i] = Log2[i / 2] + 1;
+}
+```
+
+参考题目 : [P2880 [USACO07JAN] Balanced Lineup G](https://www.luogu.com.cn/problem/P2880)
+
+[![LQgpHP.png](https://s1.ax1x.com/2022/04/14/LQgpHP.png)](https://imgtu.com/i/LQgpHP)
+
+[![LQg334.png](https://s1.ax1x.com/2022/04/14/LQg334.png)](https://imgtu.com/i/LQg334)
+
+代码具体见 : `ST.cpp`

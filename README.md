@@ -21,7 +21,7 @@
   - `Least-Common-Ancestors (LCA)`
   - `Kth-ancestor-of-a-tree-node`
   - `ST 表 (Sparse Table)`
-- **数学相关** `MathRelated` ——
+- **数学相关** `MathRelated`
   - `质数筛`
   - `矩阵的相关性质`
   - `组合数`
@@ -36,10 +36,12 @@
 - **图论相关** `GraghTheory` ——
   - `最短路` (TODO)
   - `二分图` (TODO)
-  - `最小生成树` (TODO)
   - `Tarjan` (TODO)
   - `欧拉回路` (TODO)
   - `凸包问题` (TODO)
+  - `树的相关性质` (TODO)
+    - `树的重心`
+    - `最小生成树`
 - **模拟退火** `Simulate_Anneal` (TODO)
 - **经典排序算法** (TODO) 重点 : **归并排序**
 - **经典动态规划算法总结** (TODO)

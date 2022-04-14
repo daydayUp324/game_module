@@ -24,7 +24,7 @@ public:
     }
     int findKthAncestor(int x,int k) {// 时间复杂度 : O(logn)
         // 同样把 k 的二进制位的距离全部跳掉
-        for(int i = maxF;i >= 0;i --) {
+        for(int i = 0;i < maxF;i ++) {
             if(k >> i & 1) {
                 x = dp[x][i];
                 if(x == -1) return -1;
@@ -35,10 +35,7 @@ public:
     int calLCA(int x,int y) {// 每一次查询的时间复杂度 : O(logn)
         // 首先深度保持一致
         if(depth[x] < depth[y]) swap(x,y);
-        int dis = depth[x] - depth[y];
-        for(int i = 0;i < maxF;i ++) {
-            if(dis >> i & 1) x = dp[x][i];
-        }
+        x = findKthAncestor(x,depth[x] - depth[y]);
         if(x == y) return x;
         // 假设公共祖先和他们的距离为 D
         // 那么 x,y 任何往上跳 dis < D 的距离都不会跳到相同的位置
