@@ -16,7 +16,6 @@
 - **自定义** `Node` 的 `unordered_map` 和 `map` 的写法
 - **线段树** `SegmentTree` (**区间更新 + 单点更新**)
 - **字典树** `Trie`
-- **表达式求值** (TODO)
 - **倍增法** `Binary_Lifting`
   - `Least-Common-Ancestors (LCA)`
   - `Kth-ancestor-of-a-tree-node`
@@ -25,6 +24,8 @@
   - `质数筛`
   - `矩阵的相关性质`
   - `组合数`
+    - `递推式求解组合数`
+    - `放球问题分析`
   - `求逆元`
     - `费马小定理求逆元`
     - `线性求逆元`
@@ -33,6 +34,8 @@
   - `欧拉函数` (TODO)
   - `博弈论` (TODO)
   - `斯特林数` (TODO)
+  - `表达式求值` (TODO)
+  - `母函数` (TODO)
 - **图论相关** `GraghTheory` ——
   - `最短路` (TODO)
   - `二分图` (TODO)
