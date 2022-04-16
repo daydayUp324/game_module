@@ -16,7 +16,9 @@
 - `KMP` 算法 (主串和模式串下标都是从 **0** 开始)
   - `Z Algorithm` ( `扩展 KMP 算法` )
 - **自定义** `Node` 的 `unordered_map` 和 `map` 的写法
-- **线段树** `SegmentTree` (**区间更新 + 单点更新**)
+- **线段树** `SegmentTree`
+  - `区间更新`
+  - `区间求和`
 - **字典树** `Trie`
 - **倍增法** `Binary_Lifting`
   - `Least-Common-Ancestors (LCA)`

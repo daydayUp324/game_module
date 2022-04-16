@@ -5,8 +5,7 @@ class ST
 {
     /**
      * @author : daydayUppp
-     * 以 维护区间和 为例
-     * 维护其他性质时 , 修改有关 tree[] 和 lazy[] 的对应操作即可
+     * 维护区间和
      */
 public:
     LL* arr;// 原数组下标从 1 开始
