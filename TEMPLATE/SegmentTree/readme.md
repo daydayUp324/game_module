@@ -81,7 +81,7 @@
 
 #### [307. 区域和检索 - 数组可修改](https://leetcode-cn.com/problems/range-sum-query-mutable/)
 
-![qqATMT.png](https://s1.ax1x.com/2022/04/04/qqATMT.png)](https://imgtu.com/i/qqATMT)
+![qqATMT.png](https://s1.ax1x.com/2022/04/04/qqATMT.png)](<https://imgtu.com/i/qqATMT>)
 
 #### CODE_1
 
