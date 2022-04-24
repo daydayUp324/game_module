@@ -29,6 +29,8 @@ public:
     int n,m;// 长宽
     BipreT sumRegion(int r1, int c1, int r2, int c2) {
         // 返回 (r1,c1) 为左上角 (r2,c2) 为右下角 的子矩阵的和
+        // 左上角一般不会有问题 对右下角做一个处理
+        r2 = min(r2,n) , c2 = min(c2,m);
         return pre[r2 + 1][c2 + 1] - pre[r1][c2 + 1] - pre[r2 + 1][c1] + pre[r1][c1];
     }
     Bipre(vector<vector<BipreT>>& g,const BipreT Init_v) {
