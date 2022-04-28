@@ -20,6 +20,7 @@
 4. 求 DCC
 5. 求 BCC
 6. 求 LCA (求公共祖先)
+   - 题目链接 : [P3379 【模板】最近公共祖先（LCA）](https://www.luogu.com.cn/problem/P3379)
 
 ### 预备知识
 
