@@ -1,5 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
+template<class T1,class T2>
+inline pair<T1,T2> operator+(const pair<T1, T2>& p1, const pair<T1, T2>& p2) {
+    pair<T1, T2> ret; ret.first = p1.first + p2.first; ret.second = p1.second + p2.second;
+    return ret;
+}
+template<class T1,class T2>
+inline pair<T1,T2> operator-(const pair<T1, T2>& p1, const pair<T1, T2>& p2) {
+    pair<T1, T2> ret; ret.first = p1.first - p2.first; ret.second = p1.second - p2.second;
+    return ret;
+}
+template<class T1,class T2>
+inline void operator+=(pair<T1, T2>& p1, const pair<T1, T2>& p2) {
+    p1.first += p2.first; p1.second += p2.second;
+}
 template<typename BipreT>
 class Bipre
 {
