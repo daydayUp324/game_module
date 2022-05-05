@@ -13,7 +13,7 @@
   - `三维并查集` (TODO)
 - **区间操作** `RangeModule`  (`Map` + `multiset` 模拟) **单点更新 + 区间管理** 两个版本
 - **字符串哈希** `StringHash` , 给出了定义 `pair<int,int>` 的 **hashPII()** 用于保存状态
-- ✅**离散化(.TEMPLATE/Discretize/)** `Discretize` (主要给出 **概念** 和 **相关的操作**)
+- ✅**[离散化](./TEMPLATE/Discretize/)** `Discretize` (主要给出 **概念** 和 **相关的操作**)
 - ✅**随机数生成** `GenRandom` : `int` 和 `double` 类型
 - ✅**马拉车** `Manacher` 算法 给出求 `奇数` 和 `偶数` 长度的方案
 - ✅`KMP` 算法 (主串和模式串下标都是从 `0` 开始)
