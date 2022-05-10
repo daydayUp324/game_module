@@ -17,7 +17,7 @@
   - ✅`区间管理`
 - ✅[字符串哈希 (StringHash)](./TEMPLATE/StringHash) : 给出了定义 `pair<int,int>` 的 `hashPII()`
 - ✅[离散化 (Discretize)](./TEMPLATE/Discretize/) : 主要给出 `概念` 和 `相关的操作`
-- ✅[随机数生成 (GenRandom)](.TEMPLATE/GenRandom) : `int` 和 `double` 类型
+- ✅[随机数生成 (GenRandom)](./TEMPLATE/GenRandom) : `int` 和 `double` 类型
 - ✅[马拉车算法 (Manacher)](./TEMPLATE/Manacher) : 给出求 `奇数` 和 `偶数` 长度的方案
 - ✅[KMP 算法](./TEMPLATE/KMP) : 主串和模式串下标都是从 `0` 开始
   - ✅`Z Algorithm` ( `扩展 KMP 算法` )
@@ -58,7 +58,9 @@
     - ❌`双连通分量`
     - ✅`割点和桥`
     - ❌`圆方树`
-  - ❌`二分图` (TODO)
+  - ✅[二分图](./TEMPLATE/GraghTheory/BipartiteGragh)
+    - ✅`二分图最大匹配`
+    - ❌`二分图最大权匹配`
   - ✅[Tarjan](./TEMPLATE/GraghTheory/Tarjan)
     - ✅`求割点`
     - ✅`求桥`
@@ -77,9 +79,9 @@
       - ✅`次小生成树`
         - ✅`非严格次小生成树`
         - ✅`严格次小生成树`
-- **模拟退火** `Simulate_Anneal` (TODO)
-- **经典排序算法** (TODO) 重点 : **归并排序**
-- **经典动态规划算法总结** (TODO)
+- ❌`模拟退火` : `Simulate_Anneal` (TODO)
+- ❌经典排序算法 (TODO) 重点 : **归并排序**
+- ❌经典动态规划算法总结 (TODO)
 
 ## HEAD
 
