@@ -13,6 +13,17 @@ class Hungarian {
         int count;// 最大匹配数
         int n;// 顶点数
         queue<int> q;
+        void Aug(vector<int>& pre,int v,int u) {
+            // u 是找到的未匹配的点 v 是上一个点
+            // 迭代更新路径上的信息
+            while(true) {
+                int t = match[v];// 找到上一个匹配点 v 的匹配点
+                match[v] = u , match[u] = v;
+                u = t;
+                if(u == -1) return ;
+                v = pre[u];
+            }
+        }
         void bfs(vector<vector<int>>& g) { // BFS 计算最大匹配
             bool flag;// 用于标记是否找到一条增广路
             vector<int> pre(n + 1,-1);// pre[i] = j , 表示一棵匈牙利树 i 节点的前驱节点是 j
@@ -32,12 +43,7 @@ class Hungarian {
                                 flag = true;
                                 count ++;// 匹配边 + 1
                                 // 更新匹配的情况
-                                int x = v;
-                                int y = u;
-                                while(x != -1) { // 迭代更新
-                                    match[x] = y , match[y] = x;
-                                    y = match[x] , x = pre[y];
-                                }
+                                Aug(pre,v,u);
                                 break;
                             } else { // 匹配点
                                 pre[u] = v;
@@ -82,15 +88,14 @@ class Hungarian {
             for(int i = 0;i <= n;i ++) match[i] = -1;// 表示未匹配
             vi = new bool[n + 1];
             count = 0;// 匹配数为 0
-            init_dfs(g);
-            // bfs(g);
+            // init_dfs(g);
+            bfs(g);
         }
         ~Hungarian() {
             delete []match;
             delete []vi;
         }
 };
-
 
 int main() {
     int n,m,e;
@@ -105,5 +110,3 @@ int main() {
     printf("%d\n",h.count);
     return 0;
 }
-
-

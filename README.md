@@ -58,9 +58,11 @@
     - ❌`双连通分量`
     - ✅`割点和桥`
     - ❌`圆方树`
-  - ✅[二分图](./TEMPLATE/GraghTheory/BipartiteGragh)
+  - ✅[二分图](./TEMPLATE/GraghTheory/BipartiteGraph)
     - ✅`二分图最大匹配`
-    - ❌`二分图最大权匹配`
+    - ✅`二分图最大权匹配`
+      - ✅`Kuhn_Munkers_bfs`
+      - ✅`Kuhn_Munkers_dfs`
   - ✅[Tarjan](./TEMPLATE/GraghTheory/Tarjan)
     - ✅`求割点`
     - ✅`求桥`
