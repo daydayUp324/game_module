@@ -15,6 +15,7 @@
 - ✅[区间操作 (RangeModule)](./TEMPLATE/RangeModule) : `Map` + `multiset` 模拟
   - ✅`单点更新`
   - ✅`区间管理`
+  - ❌`动态开点线段树`（TODO）
 - ✅[字符串哈希 (StringHash)](./TEMPLATE/StringHash) : 给出了定义 `pair<int,int>` 的 `hashPII()`
 - ✅[离散化 (Discretize)](./TEMPLATE/Discretize/) : 主要给出 `概念` 和 `相关的操作`
 - ✅[随机数生成 (GenRandom)](./TEMPLATE/GenRandom) : `int` 和 `double` 类型

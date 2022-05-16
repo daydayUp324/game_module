@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+const int dir[8][2] = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,-1},{-1,1}};
 class DSU {
     /**
      * @author : daydayUppp
@@ -26,8 +27,8 @@ public:
         x = fp(x) , y = fp(y);
         if(x == y) return false;
         count --;
-        // 按秩合并 
-        if(fa[x] > fa[y]) y ^= x , x ^= y , y ^= x;
+        // 按秩合并 fa[x] 越小表示这棵树越长
+        if(fa[x] < fa[y]) y ^= x , x ^= y , y ^= x;
         fa[x] += fa[y] , fa[y] = x;
         return true;
     }
