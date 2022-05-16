@@ -34,6 +34,7 @@
 - [数学相关 (MathRelated)](./TEMPLATE/MathRelated)
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
   - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h`
+  - ✅`三角形的相关性质` : `triangle.h`
   - ✅`组合数` : `comb_num.md`
     - ✅`递推式求解组合数`
     - ✅`放球问题分析`
