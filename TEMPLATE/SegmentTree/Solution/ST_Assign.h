@@ -6,6 +6,9 @@ class ST
     /**
      * @author : daydayUppp
      * 维护区间更新 区间更新 lazy[p] = 0 说明该点不需要更新
+     * 
+     * (l,r,v) : 将 : [l:r] 区间都更新为 v
+     * query(l,r) : 求 [l:r] 区间的和
      */
 public:
     LL* tree;// 线段树 tree[i] 维护 i 节点的所负责区间的某一个性质

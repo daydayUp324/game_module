@@ -5,7 +5,9 @@ class ST
 {
     /**
      * @author : daydayUppp
-     * 维护区间和
+     * 
+     * (l,r,v) : 将 : [l:r] 区间都加上 v
+     * query(l,r) : 求 [l:r] 区间的和
      */
 public:
     LL* arr;// 原数组下标从 1 开始

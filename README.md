@@ -15,7 +15,6 @@
 - ✅[区间操作 (RangeModule)](./TEMPLATE/RangeModule) : `Map` + `multiset` 模拟
   - ✅`单点更新`
   - ✅`区间管理`
-  - ❌`动态开点线段树`（TODO）
 - ✅[字符串哈希 (StringHash)](./TEMPLATE/StringHash) : 给出了定义 `pair<int,int>` 的 `hashPII()`
 - ✅[离散化 (Discretize)](./TEMPLATE/Discretize/) : 主要给出 `概念` 和 `相关的操作`
 - ✅[随机数生成 (GenRandom)](./TEMPLATE/GenRandom) : `int` 和 `double` 类型
@@ -26,6 +25,7 @@
 - ✅[线段树 (SegmentTree)](./TEMPLATE/SegmentTree)
   - ✅`区间更新`
   - ✅`区间求和`
+  - ✅`动态开点线段树`
 - ✅[字典树 (WordTrie)](./TEMPLATE/WordTrie)
 - ✅[倍增法 (Binary_Liftingd)](./TEMPLATE/Binary_Liftingd)
   - ✅`Least-Common-Ancestors (LCA)`
@@ -89,9 +89,9 @@
         - ✅`严格次小生成树`
 - ✅`模拟退火` : `Simulate_Anneal`
 - ❌最优化求解 (TODO)
-  - `梯度下降法`
-  - `爬山法`
-  - `三分法`
+  - ❌`梯度下降法`
+  - ❌`爬山法`
+  - ❌`三分法`
 - ❌经典排序算法 (TODO) 重点 : **归并排序**
 - ❌经典动态规划算法总结 (TODO)
 
