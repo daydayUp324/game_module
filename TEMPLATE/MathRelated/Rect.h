@@ -11,27 +11,34 @@ class Rect
      *              - 以 x 方向为例 : 
      *                1. 相交的矩阵部分的左边界肯定是两个矩阵左边界的最大值来决定的
      *                2. 相交的矩阵部分的右边界肯定是两个矩阵右边界的最小值来决定的
+     *          3. 计算两个矩阵的相交矩阵
      */
 public:
     int lx,ly,rx,ry;
-    int Xoverlap(Rect& B) {// RectA 和 RectB 在 x 轴的相交片段
+    int Xoverlap(const Rect& B) {// RectA 和 RectB 在 x 轴的相交片段
         return max(0 , min(this->rx,B.rx) - max(this->lx,B.lx) );
     }
-    int Yoverlap(Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
+    int Yoverlap(const Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
         return max(0 , min(this->ry,B.ry) - max(this->ly,B.ly) );
     }
-    int length() {
+    int length() { // 矩阵的长
         return rx - lx;
     }
-    int height() {
+    int height() { // 矩阵的高
         return ry - ly;
     }
     int area() {// 计算 RectA 面积
         return (rx - lx) * (ry - ly);
     }
-    int intersect(Rect& B) {// 计算 RectA 和 RectB 相交的面积
+    int intersectArea(const Rect& B) {// 计算 RectA 和 RectB 相交的面积
         int ox = Xoverlap(B) , oy = Yoverlap(B);
         return ox * oy;
+    }
+    Rect Join(const Rect& B) { // 返回 RectA 与 RectB 重合的矩阵
+        return {
+            max(lx,B.lx) , min(ly,B.ly),
+            min(rx,B.rx) , max(ry,B.ry)
+        };
     }
     Rect() {}
     Rect(int lx_,int ly_,int rx_,int ry_) {

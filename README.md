@@ -33,7 +33,7 @@
   - ✅`ST 表 (Sparse Table)`
 - [数学相关 (MathRelated)](./TEMPLATE/MathRelated)
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
-  - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h`
+  - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h` (求矩阵的 重合面积 和 重合部分矩阵)
   - ✅`三角形的相关性质` : `triangle.h`
   - ✅`组合数` : `comb_num.md`
     - ✅`递推式求解组合数`
@@ -44,6 +44,9 @@
     - ✅`扩展欧几里得求逆元`
     - ✅`求阶乘逆元`
   - ❌`欧拉函数` (TODO)
+  - ✅`全排列` : `Full_nextPermutation.md`
+  - ✅`下一个排列` : `Next_Permutation.md`
+  - ✅`容斥定理` : `Principle_Of_Inclusion_Exclusion.md`
   - ✅`二维前缀和`
     - ✅`int` 等普通数据类型 : `Bipre.h`
     - ✅`pair<>` 的自定义 `+` 的二维前缀和 `BiprePII.h`
@@ -88,20 +91,23 @@
         - ✅`非严格次小生成树`
         - ✅`严格次小生成树`
 - ✅`模拟退火` : `Simulate_Anneal`
+- ✅'逆序对' : `Inversions`
+  - ✅'归并排序'
+  - ✅'树状数组'
 - ❌最优化求解 (TODO)
   - ❌`梯度下降法`
   - ❌`爬山法`
   - ❌`三分法`
-- ❌经典排序算法 (TODO) 重点 : **归并排序**
+- ❌经典排序算法 (TODO)
 - ❌经典动态规划算法总结 (TODO)
 
 ## HEAD
 
-主要放置竞赛的一些 **"头"** —— **ACwin CodeForce LeetCode**
+主要放置竞赛的一些 __"头"__ —— __ACwin CodeForce LeetCode__
 
 ## CODE
 
-- **LCCode** : 用于 **LeetCode Competition** 使用
-- **CFCode** : 用于 **CodeForce Competition** 使用 (用脚本编译链接运行 数据放置在 **data.txt** 中)
-- **ACWCode** : 用于 **ACwin Competition** 使用 (用脚本编译链接运行 数据放置在 **data.txt** 中)
-- 其中 **CFCode** 和 **ACWCode** 可供笔试作为模板使用
+- __LCCode__ : 用于 __LeetCode Competition__ 使用
+- __CFCode__ : 用于 __CodeForce Competition__ 使用 (用脚本编译链接运行 输入数据放置在 __data.txt__ 中)
+- __ACWCode__ : 用于 __ACwin Competition__ 使用 (用脚本编译链接运行 输入数据放置在 __data.txt__ 中)
+- 其中 __CFCode__ 和 __ACWCode__ 可供笔试作为模板使用

@@ -19,18 +19,24 @@ class Rect
      */
 public:
     int lx,ly,rx,ry;
-    int Xoverlap(Rect& B) {// RectA 和 RectB 在 x 轴的相交片段
+    int Xoverlap(const Rect& B) {// RectA 和 RectB 在 x 轴的相交片段
         return max(0 , min(this->rx,B.rx) - max(this->lx,B.lx) );
     }
-    int Yoverlap(Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
+    int Yoverlap(const Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
         return max(0 , min(this->ry,B.ry) - max(this->ly,B.ly) );
     }
     int area() {// 计算 RectA 面积
         return (rx - lx) * (ry - ly);
     }
-    int intersect(Rect& B) {// 计算 RectA 和 RectB 相交的面积
+    int intersectArea(const Rect& B) {// 计算 RectA 和 RectB 相交的面积
         int ox = Xoverlap(B) , oy = Yoverlap(B);
         return ox * oy;
+    }
+    Rect Join(const Rect& B) { // 与矩阵 B 相交后剩下的矩阵
+        return {
+            max(lx,B.lx) , min(ly,B.ly),
+            min(rx,B.rx) , max(ry,B.ry)
+        };
     }
     Rect() {}
     Rect(int lx_,int ly_,int rx_,int ry_) {
