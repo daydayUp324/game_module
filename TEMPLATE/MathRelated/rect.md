@@ -3,44 +3,67 @@
 ## 矩阵相关
 
 > 给出一个矩阵 `rect` 的 `左下角 (lx,ly)` 和 `右下角 (rx,ry)`
+> 1. 计算矩阵的面积
+> 2. 计算两个矩阵的相交面积和矩阵
+
+---
+
+### CODE
+
+具体看 `./Rect.h`
+
+---
+
+### Application
+
+**[1761. 阻挡广告牌](https://www.acwing.com/problem/content/1763/)**
 
 ```cpp
-class Rect
-{
-    /**
-     * @author : daydayUppp
-     * @brief : 主要总结矩阵的相关性质 :
-     *          1. 计算矩阵的相关信息
-     *          2. 计算两个矩阵中间的相交部分面积
-     *              - 可以用在 x 和 y 轴方向上的重叠大小来计算
-     *              - 以 x 方向为例 : 
-     *                1. 相交的矩阵部分的左边界肯定是两个矩阵左边界的最大值来决定的
-     *                2. 相交的矩阵部分的右边界肯定是两个矩阵右边界的最小值来决定的
-     */
-public:
-    int lx,ly,rx,ry;
-    int Xoverlap(const Rect& B) {// RectA 和 RectB 在 x 轴的相交片段
-        return max(0 , min(this->rx,B.rx) - max(this->lx,B.lx) );
+#include<bits/stdc++.h>
+#incldue "Rect.h"
+using namespace std;
+int main() {
+    Rect h[3];
+    for(int i = 0;i < 3;i ++) {
+        cin >> h[i].lx >> h[i].ry >> h[i].rx >> h[i].ly;
     }
-    int Yoverlap(const Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
-        return max(0 , min(this->ry,B.ry) - max(this->ly,B.ly) );
+    cout<<h[0].area() - h[0].Join(h[2]).area() + h[1].area() - h[1].Join(h[2]).area()<<"\n";
+    return 0;
+}
+```
+
+**[2032. 过度种植](https://www.acwing.com/problem/content/2034/)**
+
+需要用到 `容斥原理` 来进行处理。
+
+```cpp
+#include<bits/stdc++.h>
+#incldue "Rect.h"
+using namespace std;
+Rect h[20];
+int n;
+int res;
+void dfs(int p,int num,Rect cur) {
+    if(!cur.area()) return ;
+    if(num & 1) {
+        res += cur.area();
+    } else {
+        res -= cur.area();
     }
-    int area() {// 计算 RectA 面积
-        return (rx - lx) * (ry - ly);
+    for(int i = p;i < n;i ++) {
+        dfs(i + 1,num + 1,cur.Join(h[i]));
     }
-    int intersectArea(const Rect& B) {// 计算 RectA 和 RectB 相交的面积
-        int ox = Xoverlap(B) , oy = Yoverlap(B);
-        return ox * oy;
+}
+int main() {
+    cin >> n;
+    for(int i = 0;i < n;i ++) {
+        cin >> h[i].lx >> h[i].ly >> h[i].rx >> h[i].ry;
     }
-    Rect Join(const Rect& B) { // 与矩阵 B 相交后剩下的矩阵
-        return {
-            max(lx,B.lx) , min(ly,B.ly),
-            min(rx,B.rx) , max(ry,B.ry)
-        };
+    res = 0;
+    for(int i = 0;i < n;i ++) {
+        dfs(i + 1,1,h[i]);
     }
-    Rect() {}
-    Rect(int lx_,int ly_,int rx_,int ry_) {
-        lx = lx_ , ly_ = ly , rx = rx_ , ry = ry_;
-    }
-};
+    cout<<res<<"\n";
+    return 0;
+}
 ```

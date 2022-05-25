@@ -19,16 +19,17 @@ public:
         return max(0 , min(this->rx,B.rx) - max(this->lx,B.lx) );
     }
     int Yoverlap(const Rect& B) {// RectA 和 RectB 在 y 轴的相交片段
-        return max(0 , min(this->ry,B.ry) - max(this->ly,B.ly) );
+        return max(0 , min(this->ly,B.ly) - max(this->ry,B.ry) );
     }
     int length() { // 矩阵的长
         return rx - lx;
     }
     int height() { // 矩阵的高
-        return ry - ly;
+        return ly - ry;
     }
     int area() {// 计算 RectA 面积
-        return (rx - lx) * (ry - ly);
+        if(rx < lx || ly < ry) return 0;// 没有交集
+        return (rx - lx) * (ly - ry);
     }
     int intersectArea(const Rect& B) {// 计算 RectA 和 RectB 相交的面积
         int ox = Xoverlap(B) , oy = Yoverlap(B);
@@ -42,6 +43,6 @@ public:
     }
     Rect() {}
     Rect(int lx_,int ly_,int rx_,int ry_) {
-        lx = lx_ , ly_ = ly , rx = rx_ , ry = ry_;
+        lx = lx_ , ly = ly_ , rx = rx_ , ry = ry_;
     }
 };
