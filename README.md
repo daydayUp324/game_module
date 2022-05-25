@@ -47,6 +47,10 @@
   - ✅`全排列` : `Full_nextPermutation.md`
   - ✅`下一个排列` : `Next_Permutation.md`
   - ✅`容斥定理` : `Principle_Of_Inclusion_Exclusion.md`
+    - ✅`不定方程非负整数解计数`
+    - ✅`错位排列计数`
+    - ✅`最大公约数为 k 的数对个数`
+    - ❌`推导欧拉函数`(TODO 和 `欧拉函数` 一起进行复习)
   - ✅`二维前缀和`
     - ✅`int` 等普通数据类型 : `Bipre.h`
     - ✅`pair<>` 的自定义 `+` 的二维前缀和 `BiprePII.h`
