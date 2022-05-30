@@ -22,9 +22,9 @@
 - ✅[KMP 算法](./TEMPLATE/KMP) : 主串和模式串下标都是从 `0` 开始
   - ✅`Z Algorithm` ( `扩展 KMP 算法` )
 - ✅[DIY_umap_map](./TEMPLATE/DIY_umap_map) : 自定义 `Node` 的 `unordered_map` 和 `map` 的写法
-- ✅[线段树 (SegmentTree)](./TEMPLATE/SegmentTree)
-  - ✅`区间更新`
-  - ✅`区间求和`
+- ✅[线段树 (SegmentTree)](./TEMPLATE/SegmentTree) (其中单点赋值和单点更新可以被区间赋值和更新所实现)
+  - ✅`区间赋值(Sum,Max)`
+  - ✅`区间更新(Sum,Max)`
   - ✅`动态开点线段树`
 - ✅[字典树 (WordTrie)](./TEMPLATE/WordTrie)
 - ✅[倍增法 (Binary_Liftingd)](./TEMPLATE/Binary_Liftingd)
