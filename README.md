@@ -22,7 +22,7 @@
 - ✅[KMP 算法](./TEMPLATE/KMP) : 主串和模式串下标都是从 `0` 开始
   - ✅`Z Algorithm` ( `扩展 KMP 算法` )
 - ✅[DIY_umap_map](./TEMPLATE/DIY_umap_map) : 自定义 `Node` 的 `unordered_map` 和 `map` 的写法
-- ✅[线段树 (SegmentTree)](./TEMPLATE/SegmentTree) (其中单点赋值和单点更新可以被区间赋值和更新所实现)
+- ✅[线段树 (SegmentTree)](./TEMPLATE/SegmentTree) (其中 `单点赋值` 和 `单点更新` 可以被 `区间赋值` 和 `区间更新` 所实现)
   - ✅`区间赋值(Sum,Max)`
   - ✅`区间更新(Sum,Max)`
   - ✅`动态开点线段树`
@@ -46,7 +46,7 @@
   - ❌`欧拉函数` (TODO)
   - ✅`全排列` : `Full_nextPermutation.md`
   - ✅`下一个排列` : `Next_Permutation.md`
-  - ✅`容斥定理` : `Principle_Of_Inclusion_Exclusion.md`
+  - ✅[容斥定理 Principle Of Inclusion Exclusion.md](./TEMPLATE/MathRelated/Principle_Of_Inclusion_Exclusion)
     - ✅`不定方程非负整数解计数`
     - ✅`错位排列计数`
     - ✅`最大公约数为 k 的数对个数`
