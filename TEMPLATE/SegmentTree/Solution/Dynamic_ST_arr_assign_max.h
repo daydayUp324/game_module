@@ -9,6 +9,7 @@ using LL = long long;
  * 功能 :
  * 1. 区间更新 (赋值) : [l,r,v] , 区间 val([l:r]) = v
  * 2. 区间查询 : [l,r] , 区间 [l:r] 的 "最大值"
+ * 3. 用 int root = build_subTree() 来进行线段树的初始化
  *
  * */
 const int SZ = 7e6;
