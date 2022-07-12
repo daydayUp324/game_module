@@ -155,7 +155,7 @@ int exe_mi(int a,int p,const int& TMOD) {
 }
 int cal_inv(int x,int p) {
     // 求 x 在 模 p 下的逆元
-    return exe(x,p-2,p);
+    return exe_mi(x,p-2,p);
 }
 void init(int n,const int& TMOD) {
     fac[0] = 1;
