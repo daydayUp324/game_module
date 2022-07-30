@@ -6,8 +6,8 @@ using namespace std;
  * 1. 给定点 P(x,y)
  * 2. 给定多边形 {(x0,y0),...,(xn,yn)}
  * 当点P 在多边形上或者在多边形内部时，返回 True 否则返回 False
- *
  * */
+
 const double EPS = 1e-15;
 class Solution {
 public:
