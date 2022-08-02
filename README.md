@@ -67,6 +67,7 @@
     - ✅`Bellman_ford`
     - ✅`SPFA`
   - ❌`最长路` (TODO)
+  - ❌`内向基环树求环` (`BaseRingInwardTree`)
   - `连通性相关概念` (TODO)
     - ✅`强连通分量`
     - ❌`双连通分量`
