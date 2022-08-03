@@ -28,13 +28,14 @@
   - ✅`动态开点线段树`
 - ✅[字典树 (WordTrie)](./TEMPLATE/WordTrie)
 - ✅[倍增法 (Binary_Liftingd)](./TEMPLATE/Binary_Liftingd)
-  - ✅`Least-Common-Ancestors (LCA)`
-  - ✅`Kth-ancestor-of-a-tree-node`
+  - ✅`Least-Common-Ancestors (LCA)` 最近公共祖先
+  - ✅`Kth-ancestor-of-a-tree-node` 树的第k祖先
   - ✅`ST 表 (Sparse Table)`
 - [数学相关 (MathRelated)](./TEMPLATE/MathRelated)
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
   - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h` (求矩阵的 重合面积 和 重合部分矩阵)
   - ✅`三角形的相关性质` : `triangle.h`
+  - ❌`字符串的最小化表示` : `getMin.md` , `getMin.h`
   - ✅`组合数` : `comb_num.md`
     - ✅`递推式求解组合数`
     - ✅`放球问题分析`
@@ -67,7 +68,7 @@
     - ✅`Bellman_ford`
     - ✅`SPFA`
   - ❌`最长路` (TODO)
-  - ❌`内向基环树求环` (`BaseRingInwardTree`)
+  - ✅`内向基环树求环` (`BaseRingInwardTree`) 求环的个数和最大环的大小
   - `连通性相关概念` (TODO)
     - ✅`强连通分量`
     - ❌`双连通分量`
