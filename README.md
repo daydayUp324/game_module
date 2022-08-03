@@ -35,7 +35,7 @@
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
   - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h` (求矩阵的 重合面积 和 重合部分矩阵)
   - ✅`三角形的相关性质` : `triangle.h`
-  - ❌`字符串的最小化表示` : `getMin.md` , `getMin.h`
+  - ✅`字符串的最小化表示` : `Minimal_string.md` , `Minimal_string.h`
   - ✅`组合数` : `comb_num.md`
     - ✅`递推式求解组合数`
     - ✅`放球问题分析`
