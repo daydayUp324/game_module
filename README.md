@@ -27,6 +27,7 @@
   - ✅`区间更新(Sum,Max)`
   - ✅`动态开点线段树`
 - ✅[字典树 (WordTrie)](./TEMPLATE/WordTrie)
+- ✅[单调队列 (MonotonicQ)](./TEMPLATE/MonotonicQ)
 - ✅[倍增法 (Binary_Liftingd)](./TEMPLATE/Binary_Liftingd)
   - ✅`Least-Common-Ancestors (LCA)` 最近公共祖先
   - ✅`Kth-ancestor-of-a-tree-node` 树的第k祖先
@@ -109,6 +110,8 @@
 - ❌经典动态规划算法总结 (TODO)
   - ✅`最长递增子序列`
   - ✅`最长回文子序列`
+- 经典模型问题
+  - ``
 
 ## HEAD
 
