@@ -99,19 +99,20 @@
         - ✅`非严格次小生成树`
         - ✅`严格次小生成树`
 - ✅`模拟退火` : `Simulate_Anneal`
-- ✅'逆序对' : `Inversions`
-  - ✅'归并排序'
-  - ✅'树状数组'
+- ✅`逆序对` : `Inversions`
+  - ✅`归并排序`
+  - ✅`树状数组`
 - ❌最优化求解 (TODO)
   - ❌`梯度下降法`
   - ❌`爬山法`
   - ❌`三分法`
 - ❌经典排序算法 (TODO)
-- ❌经典动态规划算法总结 (TODO)
+- `经典动态规划算法总结` : `DynamicProgram`
   - ✅`最长递增子序列`
   - ✅`最长回文子序列`
-- 经典模型问题
-  - ❌`第 k 大的子集和`
+- 💡`经典模型问题` : `ClassicProblems`
+  - ✅`第 k 大的子集和` : `Find-the-K-sum-of-an-array`
+  - ✅`从子集和还原数组` : `Find-array-given-subset-sums`
 
 ## HEAD
 
