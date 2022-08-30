@@ -36,6 +36,7 @@
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
   - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h` (求矩阵的 重合面积 和 重合部分矩阵)
   - ✅`三角形的相关性质` : `triangle.h`
+  - ✅`圆和线段的相交性质` : `CircleAndSeq.h`
   - ✅`字符串的最小化表示` : `Minimal_string.md` , `Minimal_string.h`
   - ✅`组合数` : `comb_num.md`
     - ✅`递推式求解组合数`
@@ -114,6 +115,7 @@
 - 💡`经典模型问题` : `ClassicProblems`
   - ✅`第 k 大的子集和` : `Find-the-K-sum-of-an-array`
   - ✅`从子集和还原数组` : `Find-array-given-subset-sums`
+  - ❌`反转后最大子数组和`
 
 ## HEAD
 
