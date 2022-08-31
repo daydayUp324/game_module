@@ -115,7 +115,7 @@
 - 💡`经典模型问题` : `ClassicProblems`
   - ✅`第 k 大的子集和` : `Find-the-K-sum-of-an-array`
   - ✅`从子集和还原数组` : `Find-array-given-subset-sums`
-  - ❌`反转后最大子数组和`
+  - ✅`反转后最大子数组和` : `MaxSubArrAfterReverse`
 
 ## HEAD
 
