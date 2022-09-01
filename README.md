@@ -127,3 +127,9 @@
 - __CFCode__ : 用于 __CodeForce Competition__ 使用 (用脚本编译链接运行 输入数据放置在 __data.txt__ 中)
 - __ACWCode__ : 用于 __ACwin Competition__ 使用 (用脚本编译链接运行 输入数据放置在 __data.txt__ 中)
 - 其中 __CFCode__ 和 __ACWCode__ 可供笔试作为模板使用
+
+## DataStructure
+
+主要为自己实现的一些数据结构：
+
+1. ✅ `跳表` : `MySkiplist.h`
