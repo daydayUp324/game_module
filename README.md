@@ -16,6 +16,7 @@
   - ✅`单点更新`
   - ✅`区间管理`
 - ✅[字符串哈希 (StringHash)](./TEMPLATE/StringHash) : 给出了定义 `pair<int,int>` 的 `hashPII()`
+- ✅[树哈希 (TreeHash)](./TEMPLATE/BinaryTreeHash) : 给出二叉树的 `三元组` 哈希
 - ✅[离散化 (Discretize)](./TEMPLATE/Discretize/) : 主要给出 `概念` 和 `相关的操作`
 - ✅[随机数生成 (GenRandom)](./TEMPLATE/GenRandom) : `int` 和 `double` 类型
 - ✅[马拉车算法 (Manacher)](./TEMPLATE/Manacher) : 给出求 `奇数` 和 `偶数` 长度的方案
