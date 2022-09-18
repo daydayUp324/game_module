@@ -6,6 +6,7 @@ class DSU {
      * 1. fp(int x) 查找 x 的连通块的代表
      * 2. isconnect(int x,int y) 判断 x,y 是否连通
      * 3. unite(int x,int y) 连接 x,y
+     * 4. getSize(int x) 区域 x 对应的大小
      */
 public:
     int* fa;
@@ -31,9 +32,9 @@ public:
         fa[x] += fa[y], fa[y] = x;
         return true;
     }
-    int getSize(int p) {
+    int getSize(int x) {
         // 返回区域 p 的大小
-        return -fa[fp(p)];
+        return -fa[fp(x)];
     }
     ~DSU() {
         delete []fa;
