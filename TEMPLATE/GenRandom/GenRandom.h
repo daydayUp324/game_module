@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 class GenRandom
 {
     /**
@@ -10,8 +8,8 @@ private:
     mt19937 rng{random_device{}()};// 随机数生成器
     uniform_real_distribution<double> uni_double{0, 1};
 public:
-    int RandInt(int l,int r) {
-        uniform_int_distribution<int> uni(l,r);
+    int RandInt(int l, int r) {
+        uniform_int_distribution<int> uni(l, r);
         return uni(rng);
     }
     double RandDouble() {

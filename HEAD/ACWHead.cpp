@@ -8,18 +8,16 @@ using PII = pair<int,int>;
 #define SQR(x)     ((x)*(x))
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
-int exp_pow(int a,int b) {int res = 1; while(b) {if(b&1) res = (LL) a * res % MOD;b >>= 1;a = (LL) a * a % MOD;}return res;}
-int exp_mul(int a,int b) {int res = 0; while(b) {if(b&1) res = ((LL) res + a) % MOD;b >>= 1;a = (LL) a * 2 % MOD;}return res;}
-int gcd(int a,int b) {return b == 0 ? a : gcd(b,a % b);}
-const int dir[8][2] = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,-1},{-1,1}};
-const char oe[10] = {'a','e','i','o','u','A','E','I','O','U'};
-const double EPS = 1e-6;
-const int N = 1e5 + 7;
-int n,m,a,b,c;
-int w[N];
+int exp_pow(int a, int b) {int res = 1; while (b) {if (b&1) res = (LL) a * res % MOD; b >>= 1; a = (LL) a * a % MOD;} return res;}
+int exp_mul(int a, int b) {int res = 0; while (b) {if (b&1) res = ((LL) res + a) % MOD;b >>= 1; a = (LL) a * 2 % MOD;} return res;}
+const int dir[8][2] = {{1,0}, {-1,0}, {0,1}, {0,-1}, {1,1}, {1,-1}, {-1,-1}, {-1,1}};
+const char oe[10] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+int n, m;
+vector<int> w;
 void solve() {
     cin >> n;
-    for(int i = 0;i < n;i ++) {
+    w.resize(n);
+    for (int i = 0; i < n; ++i) {
         cin >> w[i];
     }
 }

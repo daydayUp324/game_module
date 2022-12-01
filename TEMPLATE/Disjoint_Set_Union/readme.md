@@ -22,29 +22,36 @@
 class DSU {
     /**
      * @author : daydayUppp
-     * fp(int x) 查找 x 的连通块的代表
+     * 1. fp(int x) 查找 x 的连通块的代表
+     * 2. con(int x, int y) x, y 是否联通
+     * 3. ut(int x, int y) 连接 x,y 返回是否连接成功
+     * 4. Size(int x) 区域 x 对应的大小
      */
 public:
-    int* fa;
-    int n,count;// count 连通分量的数量
-    DSU(int n_) {
-        n = n_ , count = n_;
-        fa = new int[n_ + 1];
-        memset(fa,-1,4 * n + 4);
-    }
+    vector<int> fa;
+    int n, count;
+    DSU(int n) : n(n), count(n), fa(n + 1, -1) {}
     int fp(int x) {
         return fa[x] < 0 ? x : fa[x] = fp(fa[x]);
     }
-    bool unite(int x,int y) {
+    bool con(int x, int y) {
+        return fp(x) == fp(y);
+    }
+    bool ut(int x, int y) {
         // 连接 x 和 y
-        x = fp(x) , y = fp(y);
-        if(x == y) return false;// 已经是一个连通分量
+        x = fp(x), y = fp(y);
+        if (x == y) return false;
         count --;
-        // 按秩合并 
-        if(fa[x] > fa[y]) y ^= x , x ^= y , y ^= x;
-        fa[x] += fa[y] , fa[y] = x;
+        // 按秩合并 fa[x] 越小表示这棵树越长
+        if (fa[x] < fa[y]) swap(x, y);
+        fa[x] += fa[y], fa[y] = x;
         return true;
     }
+    int Size(int x) {
+        // 返回区域 p 的大小
+        return -fa[fp(x)];
+    }
+    ~DSU() {}
 };
 const int N = 1e4 + 5;
 class Solution {
@@ -52,7 +59,7 @@ public:
     int removeStones(vector<vector<int>>& s) {
         DSU h(2 * N);
         for(auto& i : s) {
-            h.unite(i[0] + N,i[1]);
+            h.ut(i[0] + N,i[1]);
         } 
         int res = s.size();
         for(int i = 0;i < 2 * N;i ++) {
@@ -76,37 +83,39 @@ public:
 #### CODE_2
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
 class DSU {
     /**
      * @author : daydayUppp
-     * fp(int x) 查找 x 的连通块的代表
+     * 1. fp(int x) 查找 x 的连通块的代表
+     * 2. con(int x, int y) x, y 是否联通
+     * 3. ut(int x, int y) 连接 x,y 返回是否连接成功
+     * 4. Size(int x) 区域 x 对应的大小
      */
 public:
-    int* fa;
-    int n,count;// count 连通分量的数量
-    DSU(int n_) {
-        n = n_ , count = n_;
-        fa = new int[n_ + 1];
-        memset(fa,-1,4 * n + 4);
-    }
+    vector<int> fa;
+    int n, count;
+    DSU(int n) : n(n), count(n), fa(n + 1, -1) {}
     int fp(int x) {
         return fa[x] < 0 ? x : fa[x] = fp(fa[x]);
     }
-    bool unite(int x,int y) {
+    bool con(int x, int y) {
+        return fp(x) == fp(y);
+    }
+    bool ut(int x, int y) {
         // 连接 x 和 y
-        x = fp(x) , y = fp(y);
-        if(x == y) return false;// 已经是一个连通分量
+        x = fp(x), y = fp(y);
+        if (x == y) return false;
         count --;
-        // 按秩合并 
-        if(y == n || fa[x] > fa[y]) y ^= x , x ^= y , y ^= x;
-        fa[x] += fa[y] , fa[y] = x;
+        // 按秩合并 fa[x] 越小表示这棵树越长
+        if (fa[x] < fa[y]) swap(x, y);
+        fa[x] += fa[y], fa[y] = x;
         return true;
     }
-    ~DSU() {
-        delete []fa;
+    int Size(int x) {
+        // 返回区域 p 的大小
+        return -fa[fp(x)];
     }
+    ~DSU() {}
 };
 class Solution {
 public:
@@ -115,13 +124,13 @@ public:
             return a[2] < b[2];
         });
         DSU h(n);
-        h.unite(0,fp);
+        h.ut(0, fp);
         vector<int> res;
         for(int i = 0;i < ms.size();) {
             int j = i;
             // 首先尝试进行连接
             for(;j < ms.size() && ms[j][2] == ms[i][2];j ++) {
-                h.unite(ms[j][0],ms[j][1]);
+                h.ut(ms[j][0],ms[j][1]);
             }
             h.fa[h.fp(0)] = n , h.fa[n] = -1;// 使 n 节点为知晓秘密的根节点 , 那么最后根节点不是 n 的就是非知晓秘密的连通区域
             while(i < j) {
@@ -153,43 +162,39 @@ public:
 #### CODE
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-#define VALID (nx >= 0 && nx < n && ny >= 0 && ny < m)
 class DSU {
     /**
      * @author : daydayUppp
      * 1. fp(int x) 查找 x 的连通块的代表
-     * 2. isconnect(int x,int y) 判断 x,y 是否连通
-     * 3. unite(int x,int y) 连接 x,y
+     * 2. con(int x, int y) x, y 是否联通
+     * 3. ut(int x, int y) 连接 x,y 返回是否连接成功
+     * 4. Size(int x) 区域 x 对应的大小
      */
 public:
-    int* fa;
-    int n,count;// count 连通分量的数量
-    DSU(int n_) {
-        n = n_ , count = n_;
-        fa = new int[n_ + 1];
-        memset(fa,-1,4 * n + 4);
-    }
+    vector<int> fa;
+    int n, count;
+    DSU(int n) : n(n), count(n), fa(n + 1, -1) {}
     int fp(int x) {
         return fa[x] < 0 ? x : fa[x] = fp(fa[x]);
     }
-    bool isconnect(int x,int y) {
+    bool con(int x, int y) {
         return fp(x) == fp(y);
     }
-    bool unite(int x,int y) {
+    bool ut(int x, int y) {
         // 连接 x 和 y
-        x = fp(x) , y = fp(y);
-        if(x == y) return false;
+        x = fp(x), y = fp(y);
+        if (x == y) return false;
         count --;
-        // 按秩合并 
-        if(fa[x] > fa[y]) y ^= x , x ^= y , y ^= x;
-        fa[x] += fa[y] , fa[y] = x;
+        // 按秩合并 fa[x] 越小表示这棵树越长
+        if (fa[x] < fa[y]) swap(x, y);
+        fa[x] += fa[y], fa[y] = x;
         return true;
     }
-    ~DSU() {
-        delete []fa;
+    int Size(int x) {
+        // 返回区域 p 的大小
+        return -fa[fp(x)];
     }
+    ~DSU() {}
 };
 const int dir[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
 class Solution {
@@ -214,8 +219,8 @@ public:
                     for(int d = 0;d < 4;d ++) {
                         int nx,ny;
                         nx = i + dir[d][0] , ny = j + dir[d][1];
-                        if(VALID && s[nx][ny]) {
-                            h.unite(o,nx * m + ny);
+                        if(nx >= 0 && nx < n && ny >= 0 && ny < m && s[nx][ny]) {
+                            h.ut(o,nx * m + ny);
                         }
                     }
                 }
@@ -223,7 +228,7 @@ public:
         }
         for(int j = 0;j < m;j ++) {
             if(s[0][j]) {
-                h.unite(j,root);// 稳定的区域
+                h.ut(j,root);// 稳定的区域
             }
         }
         for(int i = hits.size() - 1;i >= 0;i --) {
@@ -235,14 +240,14 @@ public:
                 for(int d = 0;d < 4;d ++) {
                     int nx,ny;
                     nx = x + dir[d][0] , ny = y + dir[d][1];
-                    if(VALID && s[nx][ny]) {
-                        if(!h.isconnect(x * m + y,nx * m + ny) && !h.isconnect(root,nx * m + ny))
+                    if(nx >= 0 && nx < n && ny >= 0 && ny < m && s[nx][ny]) {
+                        if(!h.con(x * m + y,nx * m + ny) && !h.con(root,nx * m + ny))
                             o -= h.fa[h.fp(nx * m + ny)];
-                        h.unite(x * m + y,nx * m + ny);
+                        h.ut(x * m + y,nx * m + ny);
                     }
                 }
-                if(!x) h.unite(x * m + y , root);// 如果加入后是顶端需要和 root 相连
-                if(h.isconnect(x * m + y,root)) res[i] = o;
+                if(!x) h.ut(x * m + y , root);// 如果加入后是顶端需要和 root 相连
+                if(h.con(x * m + y, root)) res[i] = o;
                 s[x][y] = 1;
             }
         }

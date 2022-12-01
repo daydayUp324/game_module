@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
 using PII = pair<int,int>;
 using LL = long long;
 /**
@@ -11,9 +9,9 @@ using LL = long long;
 class Random_ 
 {
 public:
-    int getARandom(int l = 1e6,int r = 1e7) {
+    int getARandom(int l = 1e6, int r = 1e7) {
         mt19937 gen{random_device{}()};
-        auto dis = uniform_int_distribution<int>(l,r); 
+        auto dis = uniform_int_distribution<int>(l, r); 
         return dis(gen);
     }
     Random_() {};
@@ -23,7 +21,7 @@ class StringHash
 private:
     static constexpr int MOD1 = 1000000007;
     static constexpr int MOD2 = 1000000009;
-    int Base1,Base2;// 两个基底
+    int Base1, Base2;// 两个基底
     struct pairhash {
         size_t operator() (const pair<int, int>& p) const {
             auto fn = hash<int>();
@@ -31,12 +29,12 @@ private:
         }
     };
     int n;// 字符串长度
-    vector<LL> pre1,pre2;
-    vector<LL> pow1,pow2;
-    unordered_set<PII,pairhash> piist;
+    vector<LL> pre1, pre2;
+    vector<LL> pow1, pow2;
+    unordered_set<PII, pairhash> piist;
 public:
     void initial(string& s) {
-        pow1.resize(n) , pow2.resize(n) , pre1.resize(n) , pre2.resize(n);
+        pow1.resize(n), pow2.resize(n), pre1.resize(n), pre2.resize(n);
         pow1[0] = pow2[0] = 1;
         pre1[0] = s[0] , pre2[0] = s[0];
         for(int i = 1;i < n;i ++) {
@@ -53,21 +51,18 @@ public:
         return piist.size();
     }
     PII getHash(int l,int r) {// return hash( s[l,r] )
-        int hash1 , hash2;
-        if(l == 0) hash1 = pre1[r] , hash2 = pre2[r];
+        int hash1, hash2;
+        if (l == 0) hash1 = pre1[r], hash2 = pre2[r];
         else {
             hash1 = (pre1[r] - ((pre1[l - 1] * pow1[r + 1 - l]) % MOD1) + MOD1) % MOD1;
             hash2 = (pre2[r] - ((pre2[l - 1] * pow2[r + 1 - l]) % MOD2) + MOD2) % MOD2;
         } 
         return {hash1,hash2};
     }
-    StringHash(string& s,int Base1_,int Base2_) {
-        this->n = s.size();
-        this->Base1 = Base1_ , this->Base2 = Base2_;
+    StringHash(string& s, int Base1_, int Base2_) : n(s.size()), Base1(Base1_), Base2(Base2_) {
         initial(s);
     };
-    StringHash(string& s) {
-        this->n = s.size();
+    StringHash(string& s) : n(s.size()) {
         Random_ h; 
         this->Base1 = h.getARandom(); 
         this->Base2 = h.getARandom();
