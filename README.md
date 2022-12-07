@@ -33,6 +33,7 @@
   - ✅`Least-Common-Ancestors (LCA)` 最近公共祖先
   - ✅`Kth-ancestor-of-a-tree-node` 树的第k祖先
   - ✅`ST 表 (Sparse Table)`
+- ✅[分块法 (decompose)](./TEMPLATE/Decompose)
 - [数学相关 (MathRelated)](./TEMPLATE/MathRelated)
   - ✅[质数筛 MakePrimeNumber](./TEMPLATE/MathRelated/MakePrimeNumber)
   - ✅`矩阵的相关性质` : `Rect.md` , `Rect.h` (求矩阵的 重合面积 和 重合部分矩阵)
