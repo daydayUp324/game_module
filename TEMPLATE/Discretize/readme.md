@@ -5,15 +5,17 @@
 ## 实现操作
 
 ```cpp
+using UT = int;
+vector<UT> mp_nums;
 // 排序 + 去重
 // 注意 : 该数组会改变。 如果要求原数组不变的情况 需要先把原数组 copy 到一个辅助数组中
-void orderly(vector<int>& nums) {
-    sort(nums.begin(), nums.end());
-    nums.erase(unique(nums.begin(), nums.end()), nums.end());
+void orderly() {
+    sort(mp_nums.begin(), mp_nums.end());
+    mp_nums.erase(unique(mp_nums.begin(), mp_nums.end()), mp_nums.end());
 }
 // 二分查找序号
 // 注意 : 前提需要确保该数在数组中
-int getId(vector<int>& nums, int target) {
-    return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+int getId(UT target) {
+    return lower_bound(mp_nums.begin(), mp_nums.end(), target) - mp_nums.begin();
 }
 ```
